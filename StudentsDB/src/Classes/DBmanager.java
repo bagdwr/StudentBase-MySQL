@@ -1,5 +1,6 @@
 package Classes;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -91,11 +92,26 @@ public class DBmanager {
         }
         return usersToClient;
     }
+    public void UpdateStudent(Student student){
+        try {
+            PreparedStatement preparedStatement=connection.prepareStatement("UPDATE `students` SET `fullname` = ?, `faculty` = ?, `groupName` = ? WHERE `students`.`id` = ?;");
+            preparedStatement.setString(1,student.getFullname());
+            preparedStatement.setString(2,student.getFaculty());
+            preparedStatement.setString(3,student.getGroup());
+            preparedStatement.setInt(4,student.getId());
+            preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Student was updated");
+            preparedStatement.close();
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
     public void DeleteById(Integer id)
     {
         try {
             PreparedStatement statement=connection.prepareStatement("DELETE FROM students WHERE id="+id+";");
             statement.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Student was deleted");
             statement.close();
         }catch (Exception ex)
         {

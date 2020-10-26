@@ -47,6 +47,9 @@ public class ServerThread extends Thread implements Serializable {
                 {
                     dBmanager.DeleteById(pd.getId());
                 }
+                if (pd.getOperationType().equals("Update")){
+                    dBmanager.UpdateStudent(pd.getStudent());
+                }
             }
             inputStream.close();
             outputStream.close();

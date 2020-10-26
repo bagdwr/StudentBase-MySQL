@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Edit extends Container {
     private JButton EditButton,BackButton,DeleteButton;
@@ -38,7 +39,7 @@ public class Edit extends Container {
             public void actionPerformed(ActionEvent e) {
                 PackageData pd=new PackageData("LIST");
                 Main.connect(pd);
-                for(int i=0; i<Main.users.size(); i++)
+                for(int i=0; i<Main.students.size(); i++)
                 {
                     if(Main.students.get(i).getId() == Integer.parseInt(idField.getText()))
                     {
@@ -90,7 +91,13 @@ public class Edit extends Container {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Student student=new Student(Integer.parseInt(idField.getText()),fullnameField.getName(),(String)facultiesComboBox.getSelectedItem(),groupField.getText());
+                PackageData pd=new PackageData("Update",student);
+                Main.connect(pd);
+                idField.setText("");
+                fullnameField.setText("");
+                groupField.setText("");
+                facultiesComboBox.setSelectedItem(1);
             }
         });
 

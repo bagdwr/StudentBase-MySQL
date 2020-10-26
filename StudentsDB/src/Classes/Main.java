@@ -41,6 +41,10 @@ public class Main implements Serializable {
             {
                 outputStream.writeObject(packageData);
             }
+            if (packageData.getOperationType().equals("Update"))
+            {
+                outputStream.writeObject(packageData);
+            }
             inputStream.close();
             outputStream.close();
             socket.close();
