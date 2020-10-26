@@ -74,19 +74,12 @@ public class RegistrationMenu  extends Container {
                     JOptionPane.showMessageDialog(null,"There is an empty field");
                 }
                 else {
-                    String reg="\\b[A-Za-z0-9-_.]+@[A-Za-z-_]+\\.[A-Za-z]{2,4}\\b";
-                    if (email.matches(reg)){
-                        PackageData pd = new PackageData("Add_user", new Users(null, fullname, email, login, password));
-                        Main.connect(pd);
-                        Tlogin.setText("");
-                        Tpassword.setText("");
-                        Temail.setText("");
-                        Tfullname.setText("");
-                    }
-                    else {
-                        JOptionPane.showMessageDialog(null,"Email does not correspond to email@example.com");
-                    }
-
+                    PackageData pd = new PackageData("Add_user", new Users(null, fullname, email, login, password));
+                    Main.connect(pd);
+                    Tlogin.setText("");
+                    Tpassword.setText("");
+                    Temail.setText("");
+                    Tfullname.setText("");
                 }
             }
         });

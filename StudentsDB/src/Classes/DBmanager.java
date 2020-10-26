@@ -12,7 +12,7 @@ public class DBmanager {
     {
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            connection= DriverManager.getConnection("jdbc:mysql://localhost/stdteachdb?useUnicode=true&serverTimezone=UTC","root","");
+            connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/stdteachdb?useUnicode=true&serverTimezone=UTC","root","");
         }catch (Exception ex)
         {
             ex.printStackTrace();

@@ -8,7 +8,7 @@ import java.net.Socket;
 public class Server implements Serializable{
     public static void main(String[] args) {
         try{
-            ServerSocket serverSocket=new ServerSocket(8888);
+            ServerSocket serverSocket=new ServerSocket(8878);
             System.out.println("Waiting for a client");
             while (true)
             {
